@@ -10,6 +10,14 @@
 
 EMNIST数据集的标准图片和MNIST一样是黑底白字，但是EMNIST的标准图片要水平翻转，然后顺时针旋转90度，否则识别都是错误的。
 
+```
+def prepare_image(img: Image) -> Image:
+    return img \
+        .transpose(Image.FLIP_LEFT_RIGHT) \
+        .transpose(Image.ROTATE_90) \
+        .resize((28, 28), Image.ANTIALIAS)
+```
+
 # 使用方法
 
 1、拉取项目
